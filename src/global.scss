@@ -1,7 +1,18 @@
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 body {
-    background: linear-gradient(to right, #ff00cc, #333399); 
+  background: linear-gradient(to right, #ff00cc, #333399);
+}
+
+.answer-ui {
+  .question {
+    width: 47%;
+    margin-right: auto;
+  }
+  .answer-options {
+    width: 47%;
+    margin-left: auto;
+  }
 }

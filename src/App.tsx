@@ -56,21 +56,21 @@ function App() {
       if (correct) {
         setScore((prev) => prev + 1);
         //save answer in the array for user answers
-        const answerObject: AnswerObject = {
-          question: questions[number].question,
-          answer: userAnswer,
-          correct,
-          correctAnswer: questions[number].correct_answer,
-        };
-        // setStatus((prev) => !prev);
-        // console.log(status);
-        // console.log(userAnswer);
-        setUserAnswers((prev) => {
-          console.log(...prev);
-          return [...prev, answerObject];
-        });
-        // console.log("hi");
       }
+      const answerObject: AnswerObject = {
+        question: questions[number].question,
+        answer: userAnswer,
+        correct,
+        correctAnswer: questions[number].correct_answer,
+      };
+      // setStatus((prev) => !prev);
+      // console.log(status);
+      // console.log(userAnswer);
+      setUserAnswers((prev) => {
+        console.log(...prev);
+        return [...prev, answerObject];
+      });
+      // console.log("hi");
     }
   };
   const nextQuestion = () => {

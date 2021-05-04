@@ -3,7 +3,7 @@ import "./global.scss";
 import QuestionCard from "./components/QuestionCard";
 import { fetchQuizQuestions, DifficultyEnum, QuestionState } from "./Api";
 
-import { GlobalStyle } from "./app.style";
+import { GlobalStyle, Wrapper } from "./app.style";
 
 import { shuffleArray } from "./Utils";
 
@@ -92,9 +92,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <div className="App flex flex-col min-h-screen justify-items-center">
+      <Wrapper className="App flex flex-col min-h-screen justify-items-center">
         <header className="App-header mx-auto mt-16 text-white">
-          <h1 className="text-center text-2xl lg:text-6xl px-4 lg:px-0 mb-4">
+          <h1 className="text-center text-2xl lg:text-6xl px-4 lg:px-0 mb-4 bg-clip-text">
             Quiz Template | React & Context
           </h1>
           <div className="text-center">
@@ -118,25 +118,37 @@ function App() {
               />
             )}
           </div>
-
-          {!gameOver &&
-            !loading &&
-            // userAnswers.length !== number + 1 &&
-            number + 1 !== TOTAL_QUESTIONS && (
-              <button className="nex" onClick={nextQuestion}>
-                Next Question
-              </button>
-            )}
-          {!gameOver &&
-            !loading &&
-            // userAnswers.length !== number + 1 &&
-            number > 0 && (
-              <button className="nex" onClick={prevQuestion}>
-                Previous Question
-              </button>
-            )}
+          <div className="navigation flex justify-between">
+            <div className="prev-navigation">
+              {!gameOver &&
+                !loading &&
+                // userAnswers.length !== number + 1 &&
+                number > 0 && (
+                  <button
+                    className="prev bg-t-contrast py-3 px-4 rounded-sm border mt-4 ml-2"
+                    onClick={prevQuestion}
+                  >
+                    Previous Question
+                  </button>
+                )}
+            </div>
+            <div className="pagination"></div>
+            <div className="next-navigation">
+              {!gameOver &&
+                !loading &&
+                // userAnswers.length !== number + 1 &&
+                number + 1 !== TOTAL_QUESTIONS && (
+                  <button
+                    className="next bg-t-contrast py-3 px-4 rounded-sm border mt-4 mr-2"
+                    onClick={nextQuestion}
+                  >
+                    Next Question
+                  </button>
+                )}
+            </div>
+          </div>
         </header>
-      </div>
+      </Wrapper>
     </>
   );
 }
